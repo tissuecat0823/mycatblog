@@ -2,26 +2,37 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>main</title>
-    <link rel="icon" sizes="180x180" href="index/favicon.ico">
+    <title>휴지</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
+    /** 위치별로 스타일시트 정리하기;;;존나헷갈림 ㅅㅂ**/
+    @font-face {
+        font-family: 애플;
+        src: url("AppleSDGothicNeoSB.ttf");
+    }
     .front{
         text-align: center;
         border-bottom: 3.5px solid rgb(0, 0, 0); 
         margin: 0; 
         padding: 15px; 
          /*링크 밑줄 없애줌*/
-        background-size: 50%;
+    }
+    .front > img {
+        width: 100px; height: 100px;
+        border-radius: 40px;
+        margin: auto;
+        text-align: center;
+        display: inline;
     }
     .container{ /*갤러리 그리드*/
-        width: 70%;
+        width: 900px;
         margin-right: auto;
         margin-left: auto;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
         padding: 30px;
-        border: 3px solid black;
+        border-top: 3px solid black;
         
     }
     /**justify가 뭔지 알아보기-clear**/
@@ -30,69 +41,84 @@
         height: auto;
         margin-bottom: 9px;
         border-radius: 15px;
-        border: 3px solid white;
+        border: 3px solid rgb(0, 0, 0);
     }
-    .filesection video{
+    .filesection {
+        text-align: center;
+    }
+    .side{
+        margin: 0;
+        padding-right: 40px;
+    }
+    video {
+        display: inline;
         border-radius: 15px;
-        border: 3px solid white;
+        border: 3px solid rgb(0, 0, 0);
     }
     #gallertitle{ /*<h2>*/
         text-align: center;
-        text-shadow: 1px 1px black;
-        color: white;
+        color: rgb(0, 0, 0);
+        font-size: 30px;
     }
     .front>h1, h1>a{
         color:black;
-        font-size: 120px; 
-        text-shadow: 3.5px 3.5px rgb(249, 249, 249);
+        font-size: 100px; 
         text-decoration: none;
-        font-weight: bold;
+        font-weight: lighter;
         margin: 0;
         
     }
     body{
         margin:0;
-        background-image: url("cool-background\ \(3\).png");
+        background-image: url("");
         background-size: auto;
         background-repeat: repeat-y;
+        background-color: white;
+        font-family: 애플;
+    }
+    .설명, .introduce, .what{
+        color: rgb(0, 0, 0);
+        font-size: 30px;
+        text-align: center;
     }
     #grid{
         display: grid;
         grid-template-columns: 1fr 4fr; 
         margin: 0;
         border-bottom: 3px solid black;
+        border-top: 3px solid black;
     }
-    #grid>.nav{
+    #grid>.side-nav{
         margin: 0;
         border-right: 3px solid black;
     }
-    #article{
-        padding-left: 10px;
-        margin-right: 10px;
+    .side > li {
+        list-style: none;
+        padding: 10px;
+        text-align: center;
     }
     li>a{
         text-decoration: none;
         color: black;
         font-size: 20px;
-        font-weight: 900;
     }
     
     @media(max-width: 800px){
         .front, .front>a{
-            color:blue;
+            color:rgb(0, 0, 0);
         }
         #grid{
             display: block;
         }
-        #grid>.nav{
+        #grid>.side-nav{
             border-bottom: 3px solid black; border-right: none;
         }
     }
     /** 위는 화면 반응형 디자인. **/
-    .rotate {
+    .rotate2 {
         animation: rotate 4s infinite linear;
       }
-      @keyframes rotate {
+      @keyframes rotate2 {
         from {
           transform: rotate(0deg);
         }
@@ -101,19 +127,20 @@
         }
       }
     .globe {
-        width: 200px;
-        height: 200px;
+        width: 5rem;
+        height: auto;
         margin: 50px auto;
         position: relative;
         perspective: 500px;
       }
       
-    .rotate2 {
+    .rotate1 {
         width: 100%;
         height: 100%;
-        position: absolute;
+        position: relative;
         transform-style: preserve-3d;
-        animation: spin 20s linear infinite;
+        animation: spin 10s linear infinite;
+        display: grid;
     }
       
     @keyframes spin {
@@ -128,48 +155,86 @@
     .globe img {
         width: 100%;
         height: 100%;
-        position: absolute;
         top: 0;
         left: 0;
-        border: 3px solid white;
+        border: 3px solid rgb(0, 0, 0);
         border-radius: 15px;
     }
+
+    /**네비게이션**/
+    nav {
+        background-color: rgb(0, 0, 0);
+        height: 50px;
+    }
+    .frontimg{
+        height: 50px;
+        padding: 0 15px 0 15px;
+    }
+    .top-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .top-nav > li {
+        float: left;
+    }
+
+    .top-nav > li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        padding-left: 25px;
+        padding-right: 25px;
+        text-decoration: none;
+    }
+
+    .top-nav > li a:hover {
+        background-color: rgb(255, 255, 255);
+        color:rgb(0, 0, 0);
+    }
+    .copyright{
+        text-align: center;
+    }
+
     </style>
 </head>
 <body>
+    <nav class="main-nave">
+        <ul class="top-nav">
+            <li class="navefirst"><img src="휴지사진1/내 프로젝트.png" class="frontimg"></li>
+            <li><a href="index.html">홈페이지</a></li>
+            <li><a href="#">사진모음</a></li>
+            <li><a href="#">동영상</a></li>
+            <li><a href="#">후원하기</a></li>
+            <li><a href="#">카테고리</a></li>
+            <li><a href="#">히스토리</a></li>
+            <li><a href="#">contract</a></li>
+        </ul>
+      </nav>      
     <div class="front">
-        <h1>
+        <h1 class="head">
             <a href="index.html" target="_blank" title="새창에서 열기">
                 휴지
             </a>
         </h1>
     </div>
-    <div id="grid">
-        <div class="nav">    
-            <ul>
-                <li><a href="신상.html">Part1</a></li>                
-                <li><a href="나이.html">Part2</a></li>            
-                <li><a href="정보.html">Part3</a></li>            
-            </ul>
-        </div>       
-        <div id="article">
-            <h2>안녕하세요!</h2>
-            <div class="filesection">
-                <img src="">
-                <video controls width="500px" height="auto">
-                    <source src="휴지3.mp4">
-                </video>
-            </div>
-            <p>
-                Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.[1] Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
-            </p>
-        </div>  
-    </div>
+    
     <h2 id="gallertitle">Gallery</h2>
+    <div class="what">
+        <p>
+            진정한 고양이의 모습.<br>
+            다양성을 존중하는 활동.<br>
+            모든 곳에 적용 가능한 가치.<br>
+            덤으로 귀여운 외모까지.
+        </p>
+    </div>
     <div class="globe">
-        <div class="rotate2">
-            <img src="휴지1.jpg" alt="휴지">
+        <div class="rotate1">
+            <img src="휴지사진1/aa.png" alt="휴지">
         </div>
+    </div>
     </div>
     <div class="container">
         <div class="images">
@@ -202,5 +267,29 @@
             </div>
         </div>
     </div>
+    <div id="grid">
+        <div class="side-nav">    
+            <ul class="side">
+                <li><a href="신상.html">Part1</a></li>                
+                <li><a href="나이.html">Part2</a></li>            
+                <li><a href="정보.html">Part3</a></li>            
+            </ul>
+        </div>       
+        <div id="article">
+            <h2 class="introduce">Black & white Cat.</h2>
+            <div class="filesection">
+                <video controls width="500px" height="auto">
+                    <source src="휴지3.mp4">
+                </video>
+            </div>
+            <p class="설명">
+                만족스러운 외모. <br>
+                귀여운 모습. <br>
+                이 모든 것을 월 199.9$에. (VAT 및 츄르값 포함.) <br>
+
+            </p>
+        </div>  
+    </div>
+    <p class="copyright">Copyright 2023. (kim yewon/2022011307) all rights reserved.</p>
 </body>
 </html>
