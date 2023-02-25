@@ -6,16 +6,18 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
     /** 위치별로 스타일시트 정리하기;;;너무헷갈려**/
-    @font-face {
-        font-family: 애플;
-        src: url("AppleSDGothicNeoSB.ttf");
-    }
-    .front{
+    @font-face {font-family: apple, serif; src: url("AppleSDGothicNeoSB.ttf");}
+    h1{
         text-align: center;
-        border-bottom: 3.5px solid rgb(0, 0, 0); 
-        margin: 0; 
-        padding: 15px; 
-         /*링크 밑줄 없애줌*/
+        margin: 0 auto;
+        border-bottom: 3px solid black;
+        padding: 15px;
+    }
+    h1>a{
+        text-decoration: none;
+        color: black;
+        font-weight: lighter;
+        font-size: 100px;
     }
     .front > img {
         width: 100px; height: 100px;
@@ -24,18 +26,17 @@
         text-align: center;
         display: inline;
     }
+    
     .container{ /*갤러리 그리드*/
-        width: 900px;
-        margin-right: auto;
-        margin-left: auto;
+        max-width: 900px;
+        margin: 0 auto 15px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
         padding: 30px;
-        border-top: 3px solid black;
+        border: 3px solid black;
         
     }
-    /**justify가 뭔지 알아보기-clear**/
     .images img{
         width: 100%;
         height: auto;
@@ -60,26 +61,22 @@
         color: rgb(0, 0, 0);
         font-size: 30px;
     }
-    .front>h1, h1>a{
-        color:black;
-        font-size: 100px; 
-        text-decoration: none;
-        font-weight: lighter;
-        margin: 0;
-        
-    }
+    
     body{
-        margin:0;
+        margin:0 auto;
         background-image: url("");
         background-size: auto;
         background-repeat: repeat-y;
         background-color: white;
-        font-family: 애플;
+        font-family: apple;
     }
-    .설명, .introduce, .what{
+    .exple, .introduce, .intro{
         color: rgb(0, 0, 0);
         font-size: 30px;
         text-align: center;
+    }
+    .video{
+        width: 500px; height: auto;
     }
     #grid{
         display: grid;
@@ -96,25 +93,15 @@
         list-style: none;
         padding: 10px;
         text-align: center;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
     }
     li>a{
         text-decoration: none;
         color: black;
         font-size: 20px;
     }
-    
-    @media(max-width: 800px){
-        .front, .front>a{
-            color:rgb(0, 0, 0);
-        }
-        #grid{
-            display: block;
-        }
-        #grid>.side-nav{
-            border-bottom: 3px solid black; border-right: none;
-        }
-    }
-    /** 위는 화면 반응형 디자인. **/
+    /**아래는 돌아가는 짤**/
     .rotate2 {
         animation: rotate 4s infinite linear;
       }
@@ -161,39 +148,51 @@
         border-radius: 15px;
     }
 
-    /**네비게이션**/
+    /**-------------상단 네비게이션-------------------**/
     nav {
         background-color: rgb(0, 0, 0);
         height: 50px;
+        overflow: hidden;
     }
     .frontimg{
         height: 50px;
         padding: 0 15px 0 15px;
     }
-    .top-nav {
+    .navlist {
         list-style: none;
         margin: 0;
         padding: 0;
     }
-    .top-nav > li {
+    .navlist > li {
         float: left;
     }
-
-    .top-nav > li a {
+    /**padding은 상 에서 시계방향으로 상우하좌**/
+    .navlist > li a {
         display: block;
         color: white;
         text-align: center;
-        padding-top: 11px;
-        padding-bottom: 11px;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding: 10px 15px 10px 15px;
         text-decoration: none;
+        width: 100px;
+        height: 30px;
+    }
+    .navlist > li a:hover {
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+    .nav-bottom{
+        width: 10px;
     }
 
-    .top-nav > li a:hover {
-        background-color: rgb(255, 255, 255);
-        color:rgb(0, 0, 0);
+    @media(max-width: 900px){/**반응형디자인**/
+        #grid{
+            display: block;
+        }
+        #grid>.side-nav{
+            border-bottom: 3px solid black; border-right: none;
+        }
     }
+    /**하단**/
     .copyright{
         text-align: center;
     }
@@ -202,31 +201,28 @@
 </head>
 <body>
     <nav class="main-nave">
-        <ul class="top-nav">
+        <ul class="navlist">
             <li class="navefirst"><img src="휴지사진1/내 프로젝트.png" class="frontimg"></li>
             <li><a href="index.html">홈페이지</a></li>
-            <li><a href="#">사진모음</a></li>
-            <li><a href="#">동영상</a></li>
+            <li><a href="#">상세정보</a></li>
+            <li><a href="#">지역</a></li>
             <li><a href="#">후원하기</a></li>
-            <li><a href="#">카테고리</a></li>
+            <li><a href="#">귀여운사진</a></li>
             <li><a href="#">히스토리</a></li>
             <li><a href="#">contract</a></li>
         </ul>
-      </nav>      
-    <div class="front">
-        <h1 class="head">
-            <a href="index.html" target="_blank" title="새창에서 열기">
-                휴지
-            </a>
-        </h1>
-    </div>
-    
+    </nav>
+    <div class="nav-bottom"></div>      
+    <h1 class="head">
+        <a href="index.html" target="_blank" title="새창에서 열기">
+            휴지 blog
+        </a>
+    </h1>
     <h2 id="gallertitle">Gallery</h2>
-    <div class="what">
+    <div class="intro">
         <p>
             진정한 고양이의 모습.<br>
-            다양성을 존중하는 활동.<br>
-            모든 곳에 적용 가능한 가치.<br>
+            토실토실한 볼살.<br>
             덤으로 귀여운 외모까지.
         </p>
     </div>
@@ -270,19 +266,19 @@
     <div id="grid">
         <div class="side-nav">    
             <ul class="side">
-                <li><a href="신상.html">Part1</a></li>                
-                <li><a href="나이.html">Part2</a></li>            
-                <li><a href="정보.html">Part3</a></li>            
+                <li><a href="#">영상1</a></li>                
+                <li><a href="#">영상2</a></li>            
+                <li><a href="#">영상3</a></li>            
             </ul>
         </div>       
         <div id="article">
-            <h2 class="introduce">Black & white Cat.</h2>
+            <h3 class="introduce">귀여움.</h3>
             <div class="filesection">
-                <video controls width="500px" height="auto">
+                <video class="video" autoplay muted controls>
                     <source src="휴지3.mp4">
                 </video>
             </div>
-            <p class="설명">
+            <p class="exple">
                 만족스러운 외모. <br>
                 귀여운 모습. <br>
                 이 모든 것을 월 199.9$에. (VAT 및 츄르값 포함.) <br>
@@ -290,6 +286,9 @@
             </p>
         </div>  
     </div>
-    <p class="copyright">Copyright 2023. (kim yewon/2022011307) all rights reserved.</p>
+    <p class="copyright">
+        Copyright 2023. (kim yewon/2022011307) all rights reserved.<br>
+        mimms1410@naver.com
+    </p>
 </body>
 </html>
