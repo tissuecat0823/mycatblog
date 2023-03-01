@@ -71,7 +71,7 @@
         color: rgb(0, 0, 0);
         font-size: 30px;
     }
-    .exple, .introduce, .intro{
+    #article, .intro {
         color: rgb(0, 0, 0);
         font-size: 30px;
         text-align: center;
@@ -92,10 +92,17 @@
         padding: 10px;
         text-align: center;
     }
-    li>a{
+    li>.vdbutton{
         text-decoration: none;
         color: black;
+        background-color: white;
+        border: 3px solid black;
         font-size: 20px;
+        width: 100px;
+        height: auto;
+    }
+    li>.vdbutton:hover{
+        background-color: red;
     }
     /**아래는 3d회전 짤**/
     .rotate2 {
@@ -185,7 +192,7 @@
         display: block;
         color: white;
         text-align: center;
-        padding: 10px 15px 10px 15px;
+        padding: 13px 15px 10px 15px;
         text-decoration: none;
         width: 100px;
         height: 30px;
@@ -226,7 +233,7 @@
             <li><a href="#">contract</a></li>
             <li class="darkmode">
                 <input id="night_day" type="button" value="night" onclick="//id를 지워도 됨 if(this.value)로 교체이건 자기자신을 나타냄.this//
-                var body = document.querySelector('body');
+                const body = document.querySelector('body');
                 var h1 = document.querySelector('h1');
                 var h1a = document.querySelector('h1>a');
                 var gallertitle = document.querySelector('#gallertitle');
@@ -237,6 +244,7 @@
                 var video = document.querySelector('.video');
                 var nav = document.querySelector('nav');
                 var sidenav = document.querySelector('.side-nav');
+                var  article = document.querySelector('#article');
                 if(this.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
                     nav.style.backgroundColor='black'; body.style.backgroundColor='black';
                     nav.style.borderBottom='3px solid white'
@@ -250,14 +258,30 @@
                     grid.style.borderBottom='3px solid white';
                     grid.style.borderTop='3px solid white';
                     sidenav.style.borderRight='3px solid white';
-                    
                     video.style.border='3px solid white';
+                    article.style.color='white';
+                    
                     this.value='day' //value change//
+
+                    var imgs = document.querySelectorAll('.images img');
+                    var i = 0;
+                    while(i < imgs.length){
+                        imgs[i].style.border='3px solid white';
+                        i = i + 1;
+                    }
+                    var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
+                    var i = 0;
+                    while(i < sidenavlist.length){
+                        sidenavlist[i].style.color='white';
+                        sidenavlist[i].style.backgroundColor='black';
+                        sidenavlist[i].style.border='3px solid white';
+                        i = i + 1;
+                    }
                 }
                 else{
                     nav.style.backgroundColor='black';
-                    nav.style.borderBottom='3px solid black'
-                    body.style.backgroundColor='white'
+                    nav.style.borderBottom='none';
+                    body.style.backgroundColor='white';
                     body.style.color='black';
                     document.querySelector('h1>a').style.color='black';
                     h1a.borderBottom='3px solid black';
@@ -269,7 +293,24 @@
                     grid.style.borderBottom='3px solid black';
                     grid.style.borderTop='3px solid black'
                     video.style.border='3px solid black';
+                    sidenav.style.borderRight='3px solid black';
+                    article.style.color='black';
+
                     this.value='night'; //value change//
+                    var imgs = document.querySelectorAll('.images img');//querySelectorAll로 모두 선택해서 배열//
+                    var i = 0;
+                    while(i < imgs.length){
+                        imgs[i].style.border='3px solid black';
+                        i = i + 1;
+                    }
+                    var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
+                    var i = 0;
+                    while(i < sidenavlist.length){
+                        sidenavlist[i].style.color='black';
+                        sidenavlist[i].style.backgroundColor='white';
+                        sidenavlist[i].style.border='3px solid black';
+                        i = i + 1;
+                    }
                 }
                 ">
             </li>
@@ -326,12 +367,15 @@
             </div>
         </div>
     </div>
+    <script>
+    </script>
     <div id="grid">
         <div class="side-nav">    
             <ul class="side">
-                <li><a href="#">영상1</a></li>                
-                <li><a href="#">영상2</a></li>            
-                <li><a href="#">영상3</a></li>            
+                <li><input class="vdbutton" type="button" value="영상1" onclick=""></li>            
+                <li><input class="vdbutton" type="button" value="영상2" onclick=""></li>                
+                <li><input class="vdbutton" type="button" value="영상3" onclick=""></li>
+                <li><input class="vdbutton" type="button" value="기존영상" onclick=""></li>            
             </ul>
         </div>       
         <div id="article">
