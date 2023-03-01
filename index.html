@@ -7,6 +7,15 @@
     <style>
     /** 위치별로 스타일시트 정리하기;;;너무헷갈려**/
     @font-face {font-family: apple, serif; src: url("AppleSDGothicNeoSB.ttf");}
+    body{
+        margin:0 auto;
+        background-image: url("");
+        background-size: auto;
+        background-repeat: repeat-y;
+        background-color: white;
+        color: black;
+        font-family: apple;
+    }
     h1{
         text-align: center;
         margin: 0 auto;
@@ -15,9 +24,9 @@
     }
     h1>a{
         text-decoration: none;
-        color: black;
+        color: rgb(0, 0, 0);
         font-weight: lighter;
-        font-size: 100px;
+        font-size: 85px;
     }
     .front > img {
         width: 100px; height: 100px;
@@ -42,7 +51,7 @@
         height: auto;
         margin-bottom: 9px;
         border-radius: 15px;
-        border: 3px solid rgb(0, 0, 0);
+        border: 3px solid black;
     }
     .filesection {
         text-align: center;
@@ -51,32 +60,21 @@
         margin: 0;
         padding-right: 40px;
     }
-    video {
+    .video {
         display: inline;
         border-radius: 15px;
         border: 3px solid rgb(0, 0, 0);
+        width: 500px; height: auto;
     }
     #gallertitle{ /*<h2>*/
         text-align: center;
         color: rgb(0, 0, 0);
         font-size: 30px;
     }
-    
-    body{
-        margin:0 auto;
-        background-image: url("");
-        background-size: auto;
-        background-repeat: repeat-y;
-        background-color: white;
-        font-family: apple;
-    }
     .exple, .introduce, .intro{
         color: rgb(0, 0, 0);
         font-size: 30px;
         text-align: center;
-    }
-    .video{
-        width: 500px; height: auto;
     }
     #grid{
         display: grid;
@@ -93,15 +91,13 @@
         list-style: none;
         padding: 10px;
         text-align: center;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
     }
     li>a{
         text-decoration: none;
         color: black;
         font-size: 20px;
     }
-    /**아래는 돌아가는 짤**/
+    /**아래는 3d회전 짤**/
     .rotate2 {
         animation: rotate 4s infinite linear;
       }
@@ -144,6 +140,7 @@
         height: 100%;
         top: 0;
         left: 0;
+        padding: 10px;
         border: 3px solid rgb(0, 0, 0);
         border-radius: 15px;
     }
@@ -151,6 +148,7 @@
     /**-------------상단 네비게이션-------------------**/
     nav {
         background-color: rgb(0, 0, 0);
+        width: auto;
         height: 50px;
         overflow: hidden;
     }
@@ -165,6 +163,22 @@
     }
     .navlist > li {
         float: left;
+    }
+    .darkmode{
+        width: 100px;
+        height: 30px;
+        padding: 10px 15px 10px 15px;
+        text-align: center;
+    }
+    #night_day {
+        display: block;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        border: 3px solid white;
     }
     /**padding은 상 에서 시계방향으로 상우하좌**/
     .navlist > li a {
@@ -210,6 +224,55 @@
             <li><a href="#">귀여운사진</a></li>
             <li><a href="#">히스토리</a></li>
             <li><a href="#">contract</a></li>
+            <li class="darkmode">
+                <input id="night_day" type="button" value="night" onclick="//id를 지워도 됨 if(this.value)로 교체이건 자기자신을 나타냄.this//
+                var body = document.querySelector('body');
+                var h1 = document.querySelector('h1');
+                var h1a = document.querySelector('h1>a');
+                var gallertitle = document.querySelector('#gallertitle');
+                var intro = document.querySelector('.intro');
+                var globeimg = document.querySelector('.globe img');
+                var container = document.querySelector('.container');
+                var grid = document.querySelector('#grid');
+                var video = document.querySelector('.video');
+                var nav = document.querySelector('nav');
+                var sidenav = document.querySelector('.side-nav');
+                if(this.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
+                    nav.style.backgroundColor='black'; body.style.backgroundColor='black';
+                    nav.style.borderBottom='3px solid white'
+                    body.style.color='white';
+                    h1a.style.color='white';
+                    h1.style.borderBottom='3px solid white';
+                    gallertitle.style.color='white';
+                    intro.style.color='white';
+                    globeimg.style.border='3px solid white';
+                    container.style.border='3px solid white';
+                    grid.style.borderBottom='3px solid white';
+                    grid.style.borderTop='3px solid white';
+                    sidenav.style.borderRight='3px solid white';
+                    
+                    video.style.border='3px solid white';
+                    this.value='day' //value change//
+                }
+                else{
+                    nav.style.backgroundColor='black';
+                    nav.style.borderBottom='3px solid black'
+                    body.style.backgroundColor='white'
+                    body.style.color='black';
+                    document.querySelector('h1>a').style.color='black';
+                    h1a.borderBottom='3px solid black';
+                    h1.style.borderBottom='3px solid black'
+                    gallertitle.style.color='black';
+                    intro.style.color='black';
+                    globeimg.style.border='3px solid black';
+                    container.style.border='3px solid black';
+                    grid.style.borderBottom='3px solid black';
+                    grid.style.borderTop='3px solid black'
+                    video.style.border='3px solid black';
+                    this.value='night'; //value change//
+                }
+                ">
+            </li>
         </ul>
     </nav>
     <div class="nav-bottom"></div>      
