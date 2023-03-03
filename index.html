@@ -6,6 +6,90 @@
     <meta name="keyword" content="휴지,고양이,휴지고양이">
     <title>휴지</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script>
+        function nightmode(it){
+            var body = document.querySelector('body');
+            var h1 = document.querySelector('h1');
+            var h1a = document.querySelector('h1>a');
+            var gallertitle = document.querySelector('#gallertitle');
+            var intro = document.querySelector('.intro');
+            var globeimg = document.querySelector('.globe img');
+            var container = document.querySelector('.container');
+            var grid = document.querySelector('#grid');
+            var video = document.querySelector('.video');
+            var nav = document.querySelector('nav');
+            var sidenav = document.querySelector('.side-nav');
+            var  article = document.querySelector('#article');
+            if(it.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
+                nav.style.backgroundColor='black'; body.style.backgroundColor='black';
+                nav.style.borderBottom='3px solid white'
+                body.style.color='white';
+                h1a.style.color='white';
+                h1.style.borderBottom='3px solid white';
+                gallertitle.style.color='white';
+                intro.style.color='white';
+                globeimg.style.border='3px solid white';
+                container.style.border='3px solid white';
+                grid.style.borderBottom='3px solid white';
+                grid.style.borderTop='3px solid white';
+                sidenav.style.borderRight='3px solid white';
+                video.style.border='3px solid white';
+                article.style.color='white';
+                
+                it.value='day' //value change//
+                var imgs = document.querySelectorAll('.images img');
+                var i = 0;
+                while(i < imgs.length){
+                    imgs[i].style.border='3px solid white';
+                    i = i + 1;
+                }
+                var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
+                var i = 0;
+                while(i < sidenavlist.length){
+                    sidenavlist[i].style.color='white';
+                    sidenavlist[i].style.backgroundColor='black';
+                    sidenavlist[i].style.border='3px solid white';
+                    i = i + 1;
+                }
+            }
+            else{
+                nav.style.backgroundColor='black';
+                nav.style.borderBottom='none';
+                body.style.backgroundColor='white';
+                body.style.color='black';
+                document.querySelector('h1>a').style.color='black';
+                h1a.borderBottom='3px solid black';
+                h1.style.borderBottom='3px solid black'
+                gallertitle.style.color='black';
+                intro.style.color='black';
+                globeimg.style.border='3px solid black';
+                container.style.border='3px solid black';
+                grid.style.borderBottom='3px solid black';
+                grid.style.borderTop='3px solid black'
+                video.style.border='3px solid black';
+                sidenav.style.borderRight='3px solid black';
+                article.style.color='black';
+                it.value='night'; //value change//
+                var imgs = document.querySelectorAll('.images img');//querySelectorAll로 모두 선택해서 배열//
+                var i = 0;
+                while(i < imgs.length){
+                    imgs[i].style.border='3px solid black';
+                    i = i + 1;
+                }
+                var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
+                var i = 0;
+                while(i < sidenavlist.length){
+                    sidenavlist[i].style.color='black';
+                    sidenavlist[i].style.backgroundColor='white';
+                    sidenavlist[i].style.border='3px solid black';
+                    i = i + 1;
+                }
+            }
+        }
+        function plus(){
+            return (1+1);
+        }
+    </script>
     <style>
     /** 위치별로 스타일시트 정리하기;;;너무헷갈려**/
     @font-face {font-family: apple, serif; src: url("AppleSDGothicNeoSB.ttf");}
@@ -104,7 +188,7 @@
         height: auto;
     }
     li>.vdbutton:hover{
-        background-color: red;
+        font-weight: bolder;
     }
     /**아래는 3d회전 짤**/
     .rotate2 {
@@ -235,85 +319,7 @@
             <li><a href="#">contract</a></li>
             <li class="darkmode">
                 <input id="night_day" type="button" value="night" onclick="//id를 지워도 됨 if(this.value)로 교체이건 자기자신을 나타냄.this//
-                const body = document.querySelector('body');
-                var h1 = document.querySelector('h1');
-                var h1a = document.querySelector('h1>a');
-                var gallertitle = document.querySelector('#gallertitle');
-                var intro = document.querySelector('.intro');
-                var globeimg = document.querySelector('.globe img');
-                var container = document.querySelector('.container');
-                var grid = document.querySelector('#grid');
-                var video = document.querySelector('.video');
-                var nav = document.querySelector('nav');
-                var sidenav = document.querySelector('.side-nav');
-                var  article = document.querySelector('#article');
-                if(this.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
-                    nav.style.backgroundColor='black'; body.style.backgroundColor='black';
-                    nav.style.borderBottom='3px solid white'
-                    body.style.color='white';
-                    h1a.style.color='white';
-                    h1.style.borderBottom='3px solid white';
-                    gallertitle.style.color='white';
-                    intro.style.color='white';
-                    globeimg.style.border='3px solid white';
-                    container.style.border='3px solid white';
-                    grid.style.borderBottom='3px solid white';
-                    grid.style.borderTop='3px solid white';
-                    sidenav.style.borderRight='3px solid white';
-                    video.style.border='3px solid white';
-                    article.style.color='white';
-                    
-                    this.value='day' //value change//
-
-                    var imgs = document.querySelectorAll('.images img');
-                    var i = 0;
-                    while(i < imgs.length){
-                        imgs[i].style.border='3px solid white';
-                        i = i + 1;
-                    }
-                    var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
-                    var i = 0;
-                    while(i < sidenavlist.length){
-                        sidenavlist[i].style.color='white';
-                        sidenavlist[i].style.backgroundColor='black';
-                        sidenavlist[i].style.border='3px solid white';
-                        i = i + 1;
-                    }
-                }
-                else{
-                    nav.style.backgroundColor='black';
-                    nav.style.borderBottom='none';
-                    body.style.backgroundColor='white';
-                    body.style.color='black';
-                    document.querySelector('h1>a').style.color='black';
-                    h1a.borderBottom='3px solid black';
-                    h1.style.borderBottom='3px solid black'
-                    gallertitle.style.color='black';
-                    intro.style.color='black';
-                    globeimg.style.border='3px solid black';
-                    container.style.border='3px solid black';
-                    grid.style.borderBottom='3px solid black';
-                    grid.style.borderTop='3px solid black'
-                    video.style.border='3px solid black';
-                    sidenav.style.borderRight='3px solid black';
-                    article.style.color='black';
-
-                    this.value='night'; //value change//
-                    var imgs = document.querySelectorAll('.images img');//querySelectorAll로 모두 선택해서 배열//
-                    var i = 0;
-                    while(i < imgs.length){
-                        imgs[i].style.border='3px solid black';
-                        i = i + 1;
-                    }
-                    var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
-                    var i = 0;
-                    while(i < sidenavlist.length){
-                        sidenavlist[i].style.color='black';
-                        sidenavlist[i].style.backgroundColor='white';
-                        sidenavlist[i].style.border='3px solid black';
-                        i = i + 1;
-                    }
-                }
+                nightmode(this);
                 ">
             </li>
         </ul>
