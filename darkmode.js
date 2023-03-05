@@ -23,6 +23,7 @@ function nightmode(self){
     var nav = document.querySelector('nav');
     var sidenav = document.querySelector('.side-nav');
     var  article = document.querySelector('#article');
+    var copyright = document.querySelector('.copyright');
     if(self.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
         nav.style.backgroundColor='black'; body.style.backgroundColor='black';
         nav.style.borderBottom='3px solid white'
@@ -38,6 +39,7 @@ function nightmode(self){
         sidenav.style.borderRight='3px solid white';
         video.style.border='3px solid white';
         article.style.color='white';
+        copyright.style.border='3px solid white';
         
         self.value='day' //value change, 중복되는 부분들 싸그리 객체화하기//
         imgs.setBorder('3px solid white');
@@ -67,6 +69,7 @@ function nightmode(self){
         video.style.border='3px solid black';
         sidenav.style.borderRight='3px solid black';
         article.style.color='black';
+        copyright.style.border='3px solid black';
         self.value='night'; //value change//
         imgs.setBorder('3px solid black');//객체설정한부분//
         var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
