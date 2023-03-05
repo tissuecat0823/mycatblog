@@ -6,8 +6,21 @@
     <meta name="keyword" content="휴지,고양이,휴지고양이">
     <title>휴지</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="index.css" rel="stylesheet">
     <script>
-        function nightmode(it){
+        /*object*/
+       var imgs = {
+        setBorder: function(color){
+            var imgs = document.querySelectorAll('.images img');
+                var i = 0;
+                while(i < imgs.length){
+                    imgs[i].style.border=color;
+                    i = i + 1;
+                }
+            },
+        }
+        /*object*/
+        function nightmode(self){
             var body = document.querySelector('body');
             var h1 = document.querySelector('h1');
             var h1a = document.querySelector('h1>a');
@@ -20,7 +33,7 @@
             var nav = document.querySelector('nav');
             var sidenav = document.querySelector('.side-nav');
             var  article = document.querySelector('#article');
-            if(it.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
+            if(self.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
                 nav.style.backgroundColor='black'; body.style.backgroundColor='black';
                 nav.style.borderBottom='3px solid white'
                 body.style.color='white';
@@ -36,13 +49,8 @@
                 video.style.border='3px solid white';
                 article.style.color='white';
                 
-                it.value='day' //value change//
-                var imgs = document.querySelectorAll('.images img');
-                var i = 0;
-                while(i < imgs.length){
-                    imgs[i].style.border='3px solid white';
-                    i = i + 1;
-                }
+                self.value='day' //value change, 중복되는 부분들 싸그리 객체화하기//
+                imgs.setBorder('3px solid white');
                 var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
                 var i = 0;
                 while(i < sidenavlist.length){
@@ -69,13 +77,8 @@
                 video.style.border='3px solid black';
                 sidenav.style.borderRight='3px solid black';
                 article.style.color='black';
-                it.value='night'; //value change//
-                var imgs = document.querySelectorAll('.images img');//querySelectorAll로 모두 선택해서 배열//
-                var i = 0;
-                while(i < imgs.length){
-                    imgs[i].style.border='3px solid black';
-                    i = i + 1;
-                }
+                self.value='night'; //value change//
+                imgs.setBorder('3px solid black');//객체설정한부분//
                 var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
                 var i = 0;
                 while(i < sidenavlist.length){
@@ -86,225 +89,8 @@
                 }
             }
         }
-        function plus(){
-            return (1+1);
-        }
-    </script>
-    <style>
-    /** 위치별로 스타일시트 정리하기;;;너무헷갈려**/
-    @font-face {font-family: apple, serif; src: url("AppleSDGothicNeoSB.ttf");}
-    body{
-        margin:0 auto;
-        background-image: url("");
-        background-size: auto;
-        background-repeat: repeat-y;
-        background-color: white;
-        color: black;
-        font-family: apple;
-    }
-    h1{
-        text-align: center;
-        margin: 0 auto;
-        border-bottom: 3px solid black;
-        padding: 15px;
-    }
-    h1>a{
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        font-weight: lighter;
-        font-size: 85px;
-    }
-    .front > img {
-        width: 100px; height: 100px;
-        border-radius: 40px;
-        margin: auto;
-        text-align: center;
-        display: inline;
-    }
-    
-    .container{ /*갤러리 그리드*/
-        max-width: 900px;
-        margin: 0 auto 15px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        padding: 30px;
-        border: 3px solid black;
         
-    }
-    .images img{
-        width: 100%;
-        height: auto;
-        margin-bottom: 9px;
-        border-radius: 15px;
-        border: 3px solid black;
-    }
-    .filesection {
-        text-align: center;
-    }
-    .side{
-        margin: 0;
-        padding-right: 40px;
-    }
-    .video {
-        display: inline;
-        border-radius: 15px;
-        border: 3px solid rgb(0, 0, 0);
-        width: 500px; height: auto;
-    }
-    #gallertitle{ /*<h2>*/
-        text-align: center;
-        color: rgb(0, 0, 0);
-        font-size: 30px;
-    }
-    #article, .intro {
-        color: rgb(0, 0, 0);
-        font-size: 30px;
-        text-align: center;
-    }
-    #grid{
-        display: grid;
-        grid-template-columns: 1fr 4fr; 
-        margin: 0;
-        border-bottom: 3px solid black;
-        border-top: 3px solid black;
-    }
-    #grid>.side-nav{
-        margin: 0;
-        border-right: 3px solid black;
-    }
-    .side > li {
-        list-style: none;
-        padding: 10px;
-        text-align: center;
-    }
-    li>.vdbutton{
-        text-decoration: none;
-        color: black;
-        background-color: white;
-        border: 3px solid black;
-        font-size: 20px;
-        width: 100px;
-        height: auto;
-    }
-    li>.vdbutton:hover{
-        font-weight: bolder;
-    }
-    /**아래는 3d회전 짤**/
-    .rotate2 {
-        animation: rotate 4s infinite linear;
-      }
-      @keyframes rotate2 {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-    .globe {
-        width: 5rem;
-        height: auto;
-        margin: 50px auto;
-        position: relative;
-        perspective: 500px;
-      }
-      
-    .rotate1 {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform-style: preserve-3d;
-        animation: spin 10s linear infinite;
-        display: grid;
-    }
-      
-    @keyframes spin {
-        from {
-          transform: rotateY(0deg);
-        }
-        to {
-          transform: rotateY(360deg);
-        }
-    }
-      
-    .globe img {
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        padding: 10px;
-        border: 3px solid rgb(0, 0, 0);
-        border-radius: 15px;
-    }
-
-    /**-------------상단 네비게이션-------------------**/
-    nav {
-        background-color: rgb(0, 0, 0);
-        width: auto;
-        height: 50px;
-        overflow: hidden;
-    }
-    .frontimg{
-        height: 50px;
-        padding: 0 15px 0 15px;
-    }
-    .navlist {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .navlist > li {
-        float: left;
-    }
-    .darkmode{
-        width: 100px;
-        height: 30px;
-        padding: 10px 15px 10px 15px;
-        text-align: center;
-    }
-    #night_day {
-        display: block;
-        width: 100px;
-        height: 30px;
-        text-align: center;
-        margin: 0 auto;
-        background-color: black;
-        color: white;
-        border: 3px solid white;
-    }
-    /**padding은 상 에서 시계방향으로 상우하좌**/
-    .navlist > li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 13px 15px 10px 15px;
-        text-decoration: none;
-        width: 100px;
-        height: 30px;
-    }
-    .navlist > li a:hover {
-        background-color: rgb(255, 255, 255);
-        color: black;
-    }
-    .nav-bottom{
-        width: 10px;
-    }
-
-    @media(max-width: 900px){/**반응형디자인**/
-        #grid{
-            display: block;
-        }
-        #grid>.side-nav{
-            border-bottom: 3px solid black; border-right: none;
-        }
-    }
-    /**하단**/
-    .copyright{
-        text-align: center;
-    }
-
-    </style>
+    </script>
 </head>
 <body>
     <nav class="main-nave">
@@ -321,6 +107,7 @@
                 <input id="night_day" type="button" value="night" onclick="//id를 지워도 됨 if(this.value)로 교체이건 자기자신을 나타냄.this//
                 nightmode(this);
                 ">
+                
             </li>
         </ul>
     </nav>
