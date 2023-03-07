@@ -8,7 +8,7 @@
 //             i = i + 1;
 //         }
     $('.images img').css('border', border);
-     },//jQuery
+     }//jQuery
  }
  const setSidenavList = {
     setColor: function(color){
@@ -24,34 +24,35 @@
  const setNavColor = {
     navBkColor: function(bkColor){
         var nav = document.querySelector('nav');
-        nav.style.backgroundColor=bkColor;
+        nav.style.backgroundColor = bkColor;
     },
     navBorder: function(border){
         var nav = document.querySelector('nav');
-        nav.style.borderBottom=border;
+        nav.style.borderBottom = border;
     }
 
  }
-
 /*object*/
 /*nightmode, object로 정리해야함. */
-function nightmode(self){
-    var body = document.querySelector('body'); 
-    var h1 = document.querySelector('h1');
-    var h1a = document.querySelector('h1>a');
-    var gallertitle = document.querySelector('#gallertitle');
-    var intro = document.querySelector('.intro');
-    var globeimg = document.querySelector('.globe img');
-    var container = document.querySelector('.container');
-    var grid = document.querySelector('#grid');
-    var video = document.querySelector('.video');
-    var nav = document.querySelector('nav');
-    var sidenav = document.querySelector('.side-nav');
-    var article = document.querySelector('#article');
-    var footer = document.querySelector('footer');
+function nightMode(self){
+    const isNightMode = document.querySelector('body').classList.toggle('night-mode');
+    
+    const body = document.querySelector('body'); 
+    const h1 = document.querySelector('h1');
+    const h1a = document.querySelector('h1>a');
+    const gallertitle = document.querySelector('#gallertitle');
+    const intro = document.querySelector('.intro');
+    const globeimg = document.querySelector('.globe img');
+    const container = document.querySelector('.container');
+    const grid = document.querySelector('#grid');
+    const video = document.querySelector('.video');
+    const nav = document.querySelector('nav');
+    const sidenav = document.querySelector('.side-nav');
+    const article = document.querySelector('#article');
+    const footer = document.querySelector('footer');
     if(self.value === 'night'){//<-여기서 굳이 document.querySelector('#night_day')를 쓰지 않아도 된다.// 리팩토링
         nav.style.backgroundColor='black';
-        nav.style.borderBottom='3px solid white';
+        //nav.style.borderBottom='3px solid white';
         body.style.backgroundColor='black';
         body.style.color='white';
         h1a.style.color='white';
@@ -65,7 +66,7 @@ function nightmode(self){
         sidenav.style.borderRight='3px solid white';
         video.style.border='3px solid white';
         article.style.color='white';
-        footer.style.border='3px solidwhite';
+        footer.style.border='3px solid white';
         self.value='day' //value change, 중복되는 부분들 싸그리 객체화하기//
         imgs.setBorder('3px solid white');
         setSidenavList.setColor('white');
@@ -82,10 +83,11 @@ function nightmode(self){
     }
     else{
         nav.style.backgroundColor='black';
-        nav.style.borderBottom='none';
+        //nav.style.borderBottom='none';
         body.style.backgroundColor='white';
         body.style.color='black';
-        document.querySelector('h1>a').style.color='black';
+        h1a.style.color='black';
+        //document.querySelector('h1>a').style.color='black';
         h1a.borderBottom='3px solid black';
         h1.style.borderBottom='3px solid black'
         gallertitle.style.color='black';
@@ -93,7 +95,7 @@ function nightmode(self){
         globeimg.style.border='3px solid black';
         container.style.border='3px solid black';
         grid.style.borderBottom='3px solid black';
-        grid.style.borderTop='3px solid black'
+        grid.style.borderTop='3px solid black';
         video.style.border='3px solid black';
         sidenav.style.borderRight='3px solid black';
         article.style.color='black';

@@ -27,14 +27,14 @@
             <li><a href="#">히스토리</a></li>
             <li><a href="#">contract</a></li>
             <li class="darkmode">
-                <input id="night_day" type="button" value="night" onclick="//id를 지워도 됨 if(this.value)로 교체이건 자기자신을 나타냄.this//
-                nightmode(this);
-                "><!--this는 속한 자기 자신을 가리킨다.-->
+                <input id="night_day" type="button" value="night" onclick="
+                nightMode(this);
+                ">
             </li>
         </ul>
     </nav>
-    <div class="nav-bottom"></div>      
-    <h1 class="head">
+    <!-- <div class="nav-bottom"></div> -->
+    <h1 class="title">
         <a href="index.html" target="_blank" title="새창에서 열기">
             <big>😄</big>휴지 blog<big>😄</big>
         </a>
@@ -123,7 +123,7 @@
         </div>  
     </div>
     <footer>
-        <p>
+        <span class="myinfor">
             2023. (kim yewon/2022011307)<br>
             <address>
                 <small>
@@ -131,7 +131,16 @@
                     kyw0428@gnu.ac.kr<br>
                 </small>
             </address>
-        </p>
+        </span>
+        <span>
+            <fieldset class="yourinfor">
+                <legend>name, number</legend>
+                <span>
+                    <input type="text" placeholder="name, number"><button type="submit">submit</button>
+                </span>
+            </fieldset>
+        </span>
+        <br>
     </footer>
 </body>
 </html>
