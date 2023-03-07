@@ -7,6 +7,12 @@
     <title>휴지</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="index.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+    <script src="jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+    <script src="jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+    <script src="jquery-ui-1.13.2.custom/jquery-ui.css"></script>
+    <script src="index.js"></script>
     <script src="darkmode.js"></script>
 </head>
 <body>
@@ -15,7 +21,7 @@
             <li class="navefirst"><img src="휴지사진1/내 프로젝트.png" class="frontimg"></li>
             <li><a href="index.html">홈페이지</a></li>
             <li><a href="index.infor.html">상세정보</a></li>
-            <li><a href="#">지역</a></li>
+            <li><a href="#">라면</a></li>
             <li><a href="#">후원하기</a></li>
             <li><a href="#">귀여운사진</a></li>
             <li><a href="#">히스토리</a></li>
@@ -23,23 +29,22 @@
             <li class="darkmode">
                 <input id="night_day" type="button" value="night" onclick="//id를 지워도 됨 if(this.value)로 교체이건 자기자신을 나타냄.this//
                 nightmode(this);
-                ">
-                
+                "><!--this는 속한 자기 자신을 가리킨다.-->
             </li>
         </ul>
     </nav>
     <div class="nav-bottom"></div>      
     <h1 class="head">
         <a href="index.html" target="_blank" title="새창에서 열기">
-            휴지 blog
+            <big>😄</big>휴지 blog<big>😄</big>
         </a>
     </h1>
-    <h2 id="gallertitle">Gallery</h2>
+    <h2 id="gallertitle">📷Gallery📷</h2>
     <div class="intro">
         <p>
-            진정한 고양이의 모습.<br>
-            토실토실한 볼살.<br>
-            덤으로 귀여운 외모까지.
+            😊고양이의 모습.<br>
+            😊토실토실한 볼살.<br>
+            😊덤으로 귀여운 외모까지.<br>
         </p>
     </div>
     <div class="globe">
@@ -56,7 +61,6 @@
                 <img src="휴지사진1/7.jpg">
                 <img src="휴지사진1/10.jpg">
                 <img src="휴지사진1/13.jpg">
-
             </div>
         </div>
         <div class="images">
@@ -93,23 +97,41 @@
         <div id="article">
             <h3 class="introduce">귀여움.</h3>
             <div class="filesection">
-                <video class="video" autoplay muted controls>
+                <video class="video" autoplay muted controls="controls" loop>
                     <source src="휴지3.mp4">
                 </video>
             </div>
             <p class="exple">
-                만족스러운 외모. <br>
-                귀여운 모습. <br>
-                이 모든 것을 월 199.9$에. (VAT 및 츄르값 포함.) <br>
+                ❤️만족스러운 뱃살. <br>
+                👀귀여운 모습. <br>
+                🤑이 모든 것을 월 199.9$에. (VAT 및 츄르값 포함.) <br>
 
             </p>
+            <!-- <p style="text-align: center;">
+                <pre>
+                    <code>
+                        var side = {
+                            setSidenavColor: function(color){
+                                var sidenavlist = document.querySelectorAll('.side li>.vdbutton');
+                                var i = 0;
+                                while(i < sidenavlist.length){
+                        
+                                }
+                    </code>
+                </pre>
+            </p> -->
         </div>  
     </div>
-    <div class="copyright">
+    <footer>
         <p>
-            Copyright 2023. (kim yewon/2022011307) all rights reserved.<br>
-            mimms1410@naver.com
+            2023. (kim yewon/2022011307)<br>
+            <address>
+                <small>
+                    mimms1410@naver.com<br>
+                    kyw0428@gnu.ac.kr<br>
+                </small>
+            </address>
         </p>
-    </div>
+    </footer>
 </body>
 </html>
