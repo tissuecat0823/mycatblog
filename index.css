@@ -151,7 +151,7 @@ nav {
     background-color: rgb(0, 0, 0);
     width: auto;
     height: 50px;
-    overflow: hidden;
+    overflow: scroll;
 }
 .frontimg{
     height: 50px;
